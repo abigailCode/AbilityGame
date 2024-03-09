@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputActionReference moveActionToUse;
     [SerializeField] float speed = 1;
     [SerializeField] GameObject losePanel;
-    public static int dodges = 0;
 
     void Start()
     {
