@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] InputActionReference moveActionToUse;
     [SerializeField] float speed = 1;
+    [SerializeField] GameObject losePanel;
+    public static int dodges = 0;
 
     void Start()
     {
@@ -34,4 +36,14 @@ public class PlayerController : MonoBehaviour
         #elif UNITY_ANDROID
         #endif
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            Time.timeScale = 0;
+            losePanel.SetActive(true);
+            Destroy(gameObject);
+        }
+    }   
 }
